@@ -3,21 +3,12 @@
       <table class="table table.hover">
           <tr>
               <th> Post Name </th>
-              <th> Item Cost </th>
           </tr>
-          <% @post.each do |post| %>
+          <% @post.comments.each do |post| %>
           <tr>
-              <td> <%= post.name %> <span class='inStock'>&emsp;- in stock!</span> </td>
-              <td> $<%= post.price %> </td>
-              <td><%= link_to 'View Item', category_post_path(@category, post), class: 'btn btn-primary' %></td>
-              <% if current_user.admin == true %>
-              <td><%= link_to 'Edit Item', edit_category_post_path(@category, post), class: 'btn btn-warning' %></td>
-              <td><%= link_to 'Delete Item',
-                    category_post_path(@category, post),
-                    class: 'btn btn-danger',
-                    data: { confirm: 'Really Delete?'},
-                    method: :delete %></td>
-              <% end %>
+              <td> <%= post.text %> </td>
+              <td><%= link_to 'Edit Comment', edit_category_post_path(@category, post), class: 'btn btn-warning' %></td>
+
           </tr>
           <% end %>
       </table>

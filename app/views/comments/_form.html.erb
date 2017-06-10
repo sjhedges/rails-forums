@@ -1,4 +1,4 @@
-<%= form_for @comments do |f| %>
+<%= form_for [@comment, @post] do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this doctor from being saved:</h2>
@@ -11,8 +11,12 @@
   <% end %>
 
 <div class="field">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+</div>
+<div class="field">
+  <%= f.label :text %>
+  <%= f.text_field :text %>
 </div>
 <div class="actions">
   <%= f.submit %>
