@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def set_doctor
+  def set_comment
     @comment = Comment.find(params[:id])
   end
 
