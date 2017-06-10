@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root 'categories#index'
 
-  resources :categories do
+ devise_for :users
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+ resources :categories do
     resources :posts
   end
 
-  resources :posts do
+ resources :posts do
     resources :comments
   end
 end
