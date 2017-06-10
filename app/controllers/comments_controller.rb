@@ -1,48 +1,62 @@
 class CommentsController < ApplicationController
   before_action :set_comment, except: [:index, :new, :create]
+
   def index
-    @comments = Comment.all
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+
   end
 
   def show
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+
   end
 
   def new
-    @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
     if @comment.save
-      redirect_to @comment
+      redirect_to post_comment_path(@post, @comment), notice: 'Post Created!'
     else
       render :new
     end
   end
 
   def edit
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to @comment
+      redirect_to post_comment_path(@post, @comment), notice: 'Comment Successfully Edited!'
     else
       render :edit
     end
   end
 
   def destroy
-    @comment.destroy
-    redirect_to comment_path
+    @post = Post.find(params[:post_id])
+    comment = @post.comments.find(params[:id])
+    comment.destroy
+    redirect_to post_comments_path, notice: 'Comment Successfully Deleted.'
   end
 
   private
 
-  def set_comment
-    @comment = Comment.find(params[:id])
+  def comment_params
+    params.require(:comment).permit(:text, :author)
   end
 
-  def comment_params
-    params.require(:comment).permit(:author, :text)
+  def set_comment
+    @comment = @post.comments(params[:id])
   end
 end
