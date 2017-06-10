@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+
+  get 'categories/new'
+
+  get 'categories/edit'
+
   root 'categories#index'
 
  devise_for :users
