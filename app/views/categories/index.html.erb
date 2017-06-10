@@ -1,5 +1,8 @@
 <h1>Categories</h1>
 <hr />
+<div class='text-right'>
+  <%= link_to 'Create New Category', new_category_path, class: 'btn btn-primary' %>
+</div>
 
 <% if @categories.empty? %>
     <h3>Please create category.</h3>
