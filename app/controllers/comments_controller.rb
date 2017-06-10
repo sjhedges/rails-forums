@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, except: [:index, :new, :create]
   def index
     @comments = Comment.all
   end
@@ -43,6 +44,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:author, :text)
-
   end
 end
