@@ -1,8 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 .wrapper {
 	margin-top: 80px;
 	margin-bottom: 20px;
+  width: 350px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .form-signin {
