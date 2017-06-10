@@ -1,21 +1,14 @@
 Rails.application.routes.draw do
-  get 'comments/index'
+  root 'categories#index'
 
-  get 'comments/show'
-
-  get 'comments/edit'
-
-  get 'comments/new'
-
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'posts/edit'
-
-  get 'posts/new'
-
-  get 'catagories/index'
-
+ devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+ resources :categories do
+    resources :posts
+  end
+
+ resources :posts do
+    resources :comments
+  end
 end
