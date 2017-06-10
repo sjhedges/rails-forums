@@ -5,7 +5,12 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
+<<<<<<< HEAD
       <li><%=link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+=======
+
+      <li class="fr"><%= button_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+>>>>>>> just more login css
     </ul>
   </div>
 </nav>

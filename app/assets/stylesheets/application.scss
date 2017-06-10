@@ -1,5 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.buffer {
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+
+
 .black {
   background-color: black;
 }
@@ -8,7 +15,9 @@
   color: white;
 }
 
-
+.fr {
+  float: right;
+}
 
 
 .wrapper {
