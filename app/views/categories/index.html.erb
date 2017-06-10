@@ -1,4 +1,5 @@
 <h1>Categories</h1>
+<hr />
 
 <% if @categories.empty? %>
     <h3>Please create category.</h3>
@@ -6,7 +7,7 @@
 <% else %>
     <div class="container">
         <% @categories.each do |category| %>
-            <div class="col-md-3 categoryStyle row">
+            <div class="categoryStyle row">
                 <h2 class='text-center categoryName'><%= category.name %></h2>
                 <div class='text-center selectButton'>
                 <%= link_to "Select Category" , category_posts_path(category), class: 'btn btn-primary btnSelect' %>
