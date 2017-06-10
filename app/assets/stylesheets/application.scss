@@ -1,9 +1,13 @@
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
 .buffer {
   margin-left: 10px;
   margin-right: 10px;
-  
+
 }
 
 
@@ -72,4 +76,9 @@ input[type="password"] {
   background: -ms-linear-gradient(45deg, rgba(255,255,0,1) 0%, rgba(0,255,255,1) 100%); /* ie10+ */
   background: linear-gradient(45deg, rgba(255,255,0,1) 0%, rgba(0,255,255,1) 100%); /* w3c */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', endColorstr='#ffff00',GradientType=1 ); /* ie6-9 */
+}
+.greenbtn {
+  margin-top: 30px;
+  color: black;
+  background-color: #00ffff;
 }
